@@ -17,16 +17,34 @@ def get_dms():
     response_data = response.json()
     return response_data
 
-def process_dms(length=10):
-    dms = get_dms()[:length]
+def process_dms():
+    dms = get_dms()
     dm_ids = []
     for dm in dms:
         if dm['type'] == 1:
             dm_ids.append(dm['id'])
     return dm_ids
 
-def export_dms():
+def sort_dms(amount=15):
     channel_ids = process_dms()
+    timestamps = {}
+    header = {
+        "Authorization": discord_token
+    }
+    for channel_id in channel_ids:
+        message_url = f"https://discord.com/api/v10/channels/{channel_id}/messages"
+        response = requests.get(message_url, headers=header)
+        data = response.json()
+        if data:
+            last_timestamp = data[0]['timestamp']
+            timestamps[last_timestamp] = channel_id
+    keys = list(timestamps.keys())
+    keys.sort(key=lambda x: datetime.fromisoformat(x), reverse=True)
+    sorted_ids = [timestamps[key] for key in keys]
+    return sorted_ids[:amount]
+
+def export_dms():
+    channel_ids = sort_dms()
     messages_list = []
     header = {
         "Authorization": discord_token
@@ -45,4 +63,3 @@ def clean_dms():
             cleaned_messages.append({message['author']['username']: message['content']})
     return cleaned_messages
 
-print(export_dms())
