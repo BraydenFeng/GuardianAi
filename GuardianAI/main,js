@@ -11,8 +11,12 @@ window.addEventListener('scroll', () => {
 });
 
 
-const random = Math.floor(Math.random() *30) + 1;
+const firstrandom = Math.floor(Math.random() *30) + 1;
 
-document.getElementById("random_number").textContent = random;
+const secondrandom = Math.floor(Math.random() *80) +1;
+
+document.getElementById("1random_number").textContent = firstrandom;
+
+document.getElementById("2random_number").textContent = secondrandom ;
 
 console.log(random)
