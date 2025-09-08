@@ -3,81 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tailwind Practice</title>
+  <title>GuardianAI</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+<style>
+    #navbar {
+      transition: all 0.3s ease;
+    }
+</style>
 </head>
-<body >
-   <!-- This is for the card 1 -->
-  <div class="bg-[#62AFFF] h-[1100px]">
-  <nav class="flex items-center justify-between px-8 py-4 border-b border-gray-300 bg-[#C1DCE4]">
+<body>
+  <!-- Navbar OUTSIDE the main container -->
+  <nav id="navbar" class="w-full flex items-center justify-between px-8 py-6 border-b border-gray-300 bg-[#C1DCE4] sticky top-0 z-50">
     <!-- Left: Logo + Title -->
     <div class="flex items-center space-x-3">
-    <div class="h-12 w-12 rounded-lg bg-[#62AFFF] flex items-center justify-center overflow-hidden">
-  <img src="logo.png" alt="logo" class="h-full w-full object-contain"> 
-    </div>
+      <div class="h-12 w-12 rounded-lg bg-[#62AFFF] flex items-center justify-center overflow-hidden">
+        <img src="logo.png" alt="logo" class="h-full w-full object-contain"> 
+      </div>
       <div>
         <p class="text-2xl font-extrabold">Guardian Ai</p>
         <p class="text-base text-gray-700">Child Safety Monitor</p>
       </div>
-  </div>
-
-
-    <!-- Middle: Nav Links -->
-      <div class="flex items-center space-x-20">
-        <div class="flex space-x-10 text-gray-700 text-2xl font-bold postion:relative">
-          <!--Still needs to add nav links/ replace the hashtag-->
-         
-          <a href="#" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition-timing-function:ease-in duration-[0.2s]">Dashboard</a>
-          <a href="#" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition-timing-function:ease-in duration-[0.2s]">Activity</a>
-          <a href="#" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition-timing-function:ease-in duration-[0.2s]">Settings</a>
-        </div>
-        <!-- Right: Button -->
-        <div>
-          <!--Still needs to add nav links/ replace the hashtag-->
-          <a href="#" class="bg-[#359BBA] text-white px-5 py-[12px] rounded-lg font-bold hover:bg-[#2a7d96] transition">
-            Get Started
-          </a>
-        </div>
-      </div>
-   
-  </nav>
-  <div class="mt-[100px] ml-[100px] text-8xl ">
-    <p class=" font-extrabold text-[#0000009C]">Keep Your Child</p>
-    <p class=" font-extrabold text-green-300"> Safe Online</p>
-  </div>
-  <!--This is for the description-->
-  <p class="text-2xl font-extrabold ml-[100px] mt-[10px] text-[#0000009C]">
-      AI-powered monitoring that detects suspicious
-      activity,<br> protects against online dangers, and gives parents peace of </br> mind.
-  </p>
- <!--This is for the buttons to send to learn more and start protecting now -->
-    <div class="justify-center ml-[70px] mt-[70px] space-x-10 text-[20px] font-bold px-8 py-10 ">
-        <a href="#" class="bg-[#3277C0] px-8 py-10 border-2 border-[#3277C0] rounded-md text-white hover:bg-[#286095] hover:border-[#286095]">Start Protecting Now</a>
-        <a href="#" class="bg-[#D9D9D9] px-16 py-10 border-2 border-[#D9D9D9] rounded-md text-black hover:bg-[#C0C0C0] hover:border-[#C0C0C0]">Learn More</a>
     </div>
-    <!--This div is for the ai-powered protection section-->
-      <div class="flex items-center space-x-12 ml-[110px] mt-[40px] font-bold">
-        <div class="flex items-center">
-        <img src ="Shield_icon.png" class="h-10 w-10">
-        <p>AI Powered Protection</p> </div>
-        <div class="flex items-center">
-          <img src="eye_icon.png" alt="eye_icon" class="h-10 w-10">
-        <p>Real-time Monitoring</p> </div>
-        <div>
 
-        <p>Instant Alerts</p> </div>
+    <!-- Nav Links -->
+    <div class="flex items-center space-x-20">
+      <div class="flex space-x-10 text-gray-700 text-2xl font-bold">
+        <a href="dashboard.html" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition ease-in duration-200">Dashboard</a>
+        <a href="#" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition ease-in duration-200">Activity</a>
+        <a href="#" class="w-[120px] text-center rounded-lg hover:text-black hover:font-bold transition ease-in duration-200">Settings</a>
       </div>
- 
- 
- 
- 
- 
-    <!--Do not pass this point for card 1 -->
-</div>
-  <!--This is for card two -->
-  <div class="bg-[#C7C7C7] h-[1100px] ">
-    <h1>Card 2</h1>
+      <div>
+          <a href="#" class="bg-[#359BBA] text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-[#2a7d96] hover:scale-105 transform transition duration-300">
+          Get Started
+          </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="bg-[#62AFFF] min-h-screen pt-32 px-24">
+    <h1 class="text-8xl font-extrabold text-[#0000009C]">Keep Your Child</h1>
+    <h2 class="text-8xl font-extrabold text-green-300">Safe Online</h2>
+    <p class="text-2xl font-extrabold mt-6 text-[#0000009C]">
+     AI-powered monitoring that detects suspicious
+    activity,<br> protects against online dangers, and gives parents peace of </br> mind.
+    </p>
+    <!-- Buttons -->
+    <div class="flex mt-10 space-x-6 text-3xl">
+        <a href="#" class="bg-[#3277C0] text-white px-8 py-4 rounded-lg font-bold border-2 border-[#3277C0] shadow-lg hover:bg-[#286095] hover:border-[#286095] hover:scale-105 transform transition duration-300">
+          Start Protecting Now
+        </a>
+        <a href="#" class="bg-[#D9D9D9] text-gray-700 px-8 py-4 rounded-lg font-bold border-2 border-[#D9D9D9] shadow-lg hover:bg-[#C0C0C0] hover:text-black hover:border-[#C0C0C0] hover:scale-105 transform transition duration-300">
+          Learn More
+        </a>
+    </div>
+    <!-- Features -->
+    <div class="flex mt-16 space-x-4 font-bold ">
+      <div class="flex items-center space-x-3">
+        <img src="shield_icon.png" class="h-10 w-10">
+        <p>AI Powered Protection</p>
+      </div>
+      <div class="flex items-center space-x-3">
+        <img src="eye_icon.png" class="h-10 w-10">
+        <p>Real-time Monitoring</p>
+      </div>
+      <div class="flex items-center space-x-3">
+        <img src="bell_icon.png" class="h-10 w-10">
+        <p>Instant Alerts</p>
+      </div>
+    </div>
   </div>
+
+  <!-- Do nit pass for Card 2 -->
+<div class="bg-[#E2E2E2] h-[1400px] ">
+  <div class="flex flex-col items-center justify-center px-8 space-y-20 ">
+    <h2 class="text-6xl font-bold mb-6 text-center mt-[100px]">Complete Protection Dashboard</h2>
+    <p class="text-center text-2xl font-medium">
+      Monitor your child's online activity, receive instant alerts, and ensure their digital safety<br>
+      with our comprehensive dashboard.
+    </p>
+  </div>
+  <div class="">
+    <div class="ml-[300px] mt-[100px]">
+      <div class="relative bg-[#E2E2E2] h-[200px] w-[300px] rounded-lg p-4 border-[10px] border-[#A7A7A7]">
+    <!-- Status Badge -->
+     <div class="absolute top-4 right-4 bg-[#62AFFF] text-white text-sm font-bold px-3 py-1 rounded-full">Active
+    </div>
+
+    <!-- Card Content -->
+    <h2 class="text-3xl font-bold text-gray-800  mt-10">Protection Status</h2>
+    <p class="mt-2 text-gray-600 text-xl">Monitoring all devices</p>
+  </div>
+</div>
+    
+
+  </div>
+</div>
+
+  <!--Dont pass for Card 3-->
+  <div class="h-[1000px]">
+
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>
-
