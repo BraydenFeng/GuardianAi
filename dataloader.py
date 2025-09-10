@@ -1,10 +1,6 @@
-from dotenv import load_dotenv
-import os
 import requests
-import subprocess
 from datetime import datetime
 
-load_dotenv()
 
 discord_url = "https://discord.com/api/v10/users/@me/channels"
 
@@ -55,12 +51,45 @@ def export_dms(discord_token, username):
     return messages_list
 
 def clean_dms(discord_token, username):
-    cleaned_messages = []
+    conversations = []
     messages_list = export_dms(discord_token, username)
+    
     for messages in messages_list:
-        for message in messages:
-            cleaned_messages.append({message['author']['username']: message['content']})
-    return cleaned_messages
+        convo = []
+        prev_author = None
+        buffer = ""
+        first_timestamp = None
+
+        for message in reversed(messages):
+            author = message["author"]["username"]
+            content = message["content"]
+            timestamp = message["timestamp"]
+
+            if author == prev_author:
+                buffer += f". {content}"
+            else:
+                if prev_author is not None:
+                    convo.append({
+                        "author": prev_author,
+                        "content": buffer,
+                        "timestamp": first_timestamp
+                    })
+                prev_author = author
+                buffer = content
+                first_timestamp = timestamp
+        
+        if prev_author is not None:
+            convo.append({
+                "author": prev_author,
+                "content": buffer,
+                "timestamp": first_timestamp
+            })
+        
+        conversations.append(convo)
+    
+    return conversations[::-1]
+
+
 
 def results(discord_token, username):
     results = clean_dms(discord_token, username)
