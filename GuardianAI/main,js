@@ -10,13 +10,37 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
 const firstrandom = Math.floor(Math.random() *30) + 1;
-
 const secondrandom = Math.floor(Math.random() *80) +1;
-
 document.getElementById("1random_number").textContent = firstrandom;
-
 document.getElementById("2random_number").textContent = secondrandom ;
 
-console.log(random)
+
+
+let old_data = "";
+let refreshed_dat ={old_data};
+const paragraph = document.getElementById("p_notfications");
+const paragraph_content = graph.textContent;
+
+
+let alert_count = 0;
+let site_count = 0;
+ 
+function notifcation(){
+  if (alert_count === 2){
+    console.log("no new notifcations"); 
+  }else{
+      document.getElementById("alerts_counted").textContent = alert_count;
+  }
+  
+  //if(site_count === 2){
+    //console.log("No new notifications")
+    
+    
+  //}else{
+     //document.getElementById("sites_counted").textContent = site_count
+  //}
+
+}
+
+notifcation();
