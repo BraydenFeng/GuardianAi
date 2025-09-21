@@ -27,7 +27,7 @@ def sort_dms(discord_token, username, amount=15):
         "Authorization": discord_token
     }
     for channel_id in channel_ids:
-        message_url = f"https://discord.com/api/v10/channels/{channel_id}/messages"
+        message_url = f"https://discord.com/api/v10/channels/{channel_id}/messages?limit=100"
         response = requests.get(message_url, headers=header)
         data = response.json()
         if data:

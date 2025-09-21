@@ -1,21 +1,5 @@
-import dataloader
+from dependencies import *
 import ai
-from dataloader import results
-from fastapi import FastAPI
-from pydantic import BaseModel
-import firebase_admin
-from firebase_admin import credentials, firestore, auth
-from dotenv import load_dotenv
-import os
-from cryptography.fernet import Fernet
-
-load_dotenv()
-fernet_key = os.getenv("FERNET_KEY")
-app = FastAPI()
-cred = credentials.Certificate("credentials.json")
-firebase_admin.initialize_app(cred)
-db = firestore.client()
-cipher = Fernet(fernet_key)
 
 class User(BaseModel):
     username: str
@@ -23,6 +7,9 @@ class User(BaseModel):
     email: str
     discord_token: str
     discord_username: str
+
+class Uid(BaseModel):
+    uid: str
 
 @app.post("/create-user")
 def create_user(request: User):
@@ -41,12 +28,6 @@ def create_user(request: User):
     db.collection("users").add(user_data)
     return "success"
 
-@app.post("/process-data")
-def process_data(uid: str):
-    user = db.collection("users").document(uid).get()
-    user_info = user.to_dict()
-    discord_user = user_info["discord_username"]
-    discord_token = user_info['discord_token']
-    decrypted_token = cipher.decrypt(discord_token)
-    data = dataloader.results(decrypted_token, discord_user)
-    return data
+@app.post("/call-model")
+def call_model(uid: Uid):
+    return (ai.call_model(uid.uid))

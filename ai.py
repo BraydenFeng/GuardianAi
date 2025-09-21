@@ -1,25 +1,33 @@
-from transformers import AutoTokenizer
-from transformers import AutoModelForSequenceClassification
+from transformers import AutoModelForSequenceClassification, DataCollatorWithPadding, AutoTokenizer
 import torch
+import pandas
+from torch.utils.data import DataLoader
+from torch.optim import AdamW
+from sklearn.metrics import classification_report
+from dependencies import db, cipher, dataloader
+from google.cloud.firestore_v1 import ArrayUnion
+from services import process_user_data
 
-model_path = "model"
+id2label = {0: "Not Predatory", 1: "Predatory"}
+label2id = {"Not Predatory": 0, "Predatory": 1}
+model = AutoModelForSequenceClassification.from_pretrained("model")
+tokenizer = AutoTokenizer.from_pretrained("model")
 
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-model = AutoModelForSequenceClassification.from_pretrained(model_path)
-id2label = {
-    0: "Coercion and Manipulation",
-    1: "Deception",
-    2: "Explicit Solicitation",
-    3: "Grooming",
-    4: "Not predatory"
-}
+def call_model(uid: str):
+    dangerous_messages = []
+    data = process_user_data(db, cipher, dataloader, uid)
+    model.eval()
+    with torch.no_grad():
+        for channel in data:
+            for message in channel:
+                tokenized_text = tokenizer(message['content'], padding=True, truncation=True, return_tensors="pt")
+                predictions = model(input_ids=tokenized_text['input_ids'], attention_mask=tokenized_text['attention_mask'])
+                predicted_class = predictions.logits.argmax(dim=1).item()
+                label = id2label[predicted_class]
+                if label == "Predatory":
+                    dangerous_messages.append(message)
+    db.collection("users").document(uid).collection("messages").document("dangerous-messages").set({
+        "dangerous_messages": ArrayUnion(dangerous_messages)
+        }, merge=True)
+    return "Success!"
 
-text = "What music do you like to listen to? Just curious!"
-inputs = tokenizer(text, return_tensors="pt")
-
-with torch.no_grad():
-    outputs = model(**inputs)
-    logits = outputs.logits
-    predicted_class = torch.argmax(logits, dim=-1).item()
-
-print("Predicted label:", id2label[predicted_class])
