@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+firebase-admin
+python-dotenv
+cryptography
+torch
+transformers
+google-cloud-firestore

@@ -7,6 +7,7 @@ from firebase_admin import credentials, firestore, auth
 from dotenv import load_dotenv
 import os
 from cryptography.fernet import Fernet
+from fastapi.middleware.cors import CORSMiddleware
 
 
 load_dotenv()

@@ -3,3 +3,4 @@ venv/
 .env
 credentials.json
 model/
+__pycache__/

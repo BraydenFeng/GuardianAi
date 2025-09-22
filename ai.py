@@ -1,9 +1,5 @@
-from transformers import AutoModelForSequenceClassification, DataCollatorWithPadding, AutoTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
-import pandas
-from torch.utils.data import DataLoader
-from torch.optim import AdamW
-from sklearn.metrics import classification_report
 from dependencies import db, cipher, dataloader
 from google.cloud.firestore_v1 import ArrayUnion
 from services import process_user_data
