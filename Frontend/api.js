@@ -1,7 +1,6 @@
 const uid = "X25w7WKC3GuqdBM0mzQk"
 
 //request from api and sends data to console
-fetch(`http://127.0.0.1:8000/read-dangerous?=${uid}`)
     .then(res => res.json())
     .then(data => console.log(data))
     .catch(err => console.error(err));
