@@ -13,12 +13,12 @@
   </style>
 </head>
 <body>
-  <!-- Navbar OUTSIDE the main container -->
+  <!-- Navbar -->
   <nav id="navbar" class="w-full flex items-center justify-between px-8 py-6 border-b border-gray-300 bg-[#C1DCE4] sticky top-0 z-50">
     <!-- Left: Logo + Title -->
     <div class="flex items-center space-x-3">
       <div class="h-12 w-12 rounded-lg bg-[#62AFFF] flex items-center justify-center overflow-hidden">
-        <img src="logo_icon.png" alt="logo" class="h-full w-full object-contain"> 
+        <img src="logo_icon.png" alt="logo" class="h-full w-full object-contain">
       </div>
       <div>
         <p class="text-[30px] font-extrabold">Sentinel</p>
@@ -41,7 +41,7 @@
     </div>
   </nav>
 
-  <!-- Main content -->
+  <!-- Hero Section -->
   <div class="bg-[#62AFFF] min-h-screen pt-32 px-24">
     <h1 class="text-8xl font-extrabold text-[#0000009C]">Keep Your Child</h1>
     <h2 class="text-8xl font-extrabold text-green-300">Safe Online</h2>
@@ -49,6 +49,7 @@
       AI-powered monitoring that detects suspicious activity,<br>
       protects against online dangers, and gives parents peace of mind.
     </p>
+
     <!-- Buttons -->
     <div class="flex mt-10 space-x-6 text-3xl">
       <a href="#" class="bg-[#3277C0] text-white px-8 py-4 rounded-lg font-bold border-2 border-[#3277C0] shadow-lg hover:bg-[#286095] hover:border-[#286095] hover:scale-105 transform transition duration-300">
@@ -58,6 +59,7 @@
         Learn More
       </a>
     </div>
+
     <!-- Features -->
     <div class="flex mt-16 space-x-4 font-bold">
       <div class="flex items-center space-x-3">
@@ -75,9 +77,9 @@
     </div>
   </div>
 
-  <!-- Do not pass for Card 2 -->
+  <!-- Dashboard Section -->
   <div class="bg-[#E2E2E2] h-[1400px]">
-    <!--This is for the header-->
+    <!-- Header -->
     <div class="flex flex-col items-center justify-center px-8 space-y-20">
       <h2 class="text-6xl font-bold mb-6 text-center mt-[100px]">Complete Protection Dashboard</h2>
       <p class="text-center text-2xl font-medium">
@@ -86,24 +88,21 @@
       </p>
     </div>
 
-    <!--For all the boxes-->
+    <!-- Status Cards -->
     <div class="ml-[400px] mt-[100px] flex space-x-20">
-      <!--Box1-->
+      <!-- Box 1 -->
       <div class="relative bg-gradient-to-r from-white to-[#BDBDBD] h-[200px] w-[300px] rounded-lg p-4 border-2 border-[#A7A7A7]">
         <img src="shield_icon.png" class="h-[50px] w-[50px]">
-        <!-- Status Badge -->
         <div class="absolute top-4 right-4 bg-[#62AFFF] text-white text-sm font-bold px-3 py-1 rounded-full">
           <p>Active</p>
         </div>
-        <!-- Card Content -->
         <h2 class="text-3xl font-bold text-gray-800">Protection Status</h2>
         <p class="mt-2 text-gray-600 text-xl">Monitoring all devices</p>
       </div>
 
-      <!--Box2-->
+      <!-- Box 2 -->
       <div class="relative bg-gradient-to-r from-white to-[#BDBDBD] h-[200px] w-[300px] rounded-lg p-4 border-2 border-[#A7A7A7]">
         <img src="alert_icon.png" class="h-[50px] w-[50px]">
-        <!--Status of alerts-->
         <div class="absolute top-4 right-4 bg-[#ED6B1A] text-white text-sm font-bold px-3 py-1 rounded-full">
           <p id="1random_number">0</p>
         </div>
@@ -111,113 +110,159 @@
         <p class="mt-2 text-gray-600 text-xl">Suspicious activity detected</p>
       </div>
 
-      <!--Box 3-->
+      <!-- Box 3 -->
       <div class="relative bg-gradient-to-r from-white to-[#BDBDBD] h-[200px] w-[300px] rounded-lg p-4 border-2 border-[#A7A7A7]">
         <img src="eye_icon.png" class="h-[42px] w-[42px]">
-        <!--Sites monitored status-->
         <div class="absolute top-4 right-4 bg-[#7ACD3F] text-white text-sm font-bold px-3 py-1 rounded-full">
           <p id="2random_number">0</p>
         </div>
         <h2 class="text-3xl font-bold text-gray-800">Sites Monitored</h2>
         <p class="mt-2 text-gray-600 text-xl">Last 24 hours</p>
       </div>
-    </div>  
-
-    <!--Recent activity boxes-->
-    <div class="bg-white rounded-lg w-[600px] ml-[200px] mt-[100px] p-6">
-      <div class="flex justify-between items-center">
-        <h1 class="font-bold text-2xl">Recent Activity</h1>
-        <button class="border-[2px] border-[#A7A7A7] rounded-lg px-4 py-2 hover:bg-[#A7A7A7]">
-          View All
-        </button>
-      </div>
-
-      <div class="mt-4 p-4 bg-[#E3E3E3] rounded-lg">
-        <div class="flex items-center justify-between relative">
-          <div class="flex items-center space-x-2">
-            <p class="text-lg font-bold">Visited educational site: Khan Academy Math</p>
-          </div>
-          <div class="absolute top-0 right-0 pt-0 px-2 rounded-full bg-[#7ACD3F]">
-            <p class="text-white font-medium text-sm">safe</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2 mt-2">
-          <img src="checkmark_icon.png" alt="check" class="h-8 w-8">
-          <p class="text-gray-500 text-sm">2 minutes ago</p>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-[#E3E3E3] rounded-lg">
-        <div class="flex items-center justify-between relative">
-          <div class="flex items-center space-x-2">
-            <p class="text-lg font-bold">Received message from unknown contact</p>
-          </div>
-          <div class="absolute top-0 right-0 pt-0 px-2 rounded-full bg-[#ED6B1A]">
-            <p class="text-white font-medium text-sm">flagged</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2 mt-2">
-          <img src="alert_icon.png" alt="alert" class="h-8 w-8">
-          <p class="text-gray-500 text-sm">15 minutes ago</p>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-[#E3E3E3] rounded-lg">
-        <div class="flex items-center justify-between relative">
-          <div class="flex items-center space-x-2">
-            <p class="text-lg font-bold">Searched: 'homework help math algebra'</p>
-          </div>
-          <div class="absolute top-0 right-0 pt-0 px-2 rounded-full bg-[#7ACD3F]">
-            <p class="text-white font-medium text-sm">safe</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2 mt-2">
-          <img src = "checkmark_icon.png" alt="check" class="h-8 w-8">
-        <p class="text-gray-500 text-sm">20 minutes ago</p>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-[#E3E3E3] rounded-lg">
-        <div class="flex items-center justify-between relative">
-          <div class="flex items-center space-x-2">
-            <p class="text-lg font-bold">Attempted to visit blocked site</p>
-          </div>
-          <div class="absolute top-0 right-0 pt-0 px-2 rounded-full bg-[#A7A7A8]">
-            <p class="text-white font-medium text-sm">blocked</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2 mt-2">
-          <img src="alert_icon.png" alt="check" class="h-8 w-8"> <!--fix photo-->
-          <p class="text-gray-500 text-sm">1 hour ago</p>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-[#E3E3E3] rounded-lg">
-        <div class="flex items-center justify-between relative">
-          <div class="flex items-center space-x-2">
-            <p class="text-lg font-bold">Video call with: Sarah</p>
-          </div>
-          <div class="absolute top-0 right-0 pt-0 px-2 rounded-full bg-[#7ACD3F]">
-            <p class="text-white font-medium text-sm">safe</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2 mt-2">
-          <img src="checkmark_icon.png" alt="check" class="h-8 w-8">
-          <p class="text-gray-500 text-sm">2 hours ago</p>
-        </div>
-      </div>
-
     </div>
-    <!--end of recent activity-->
 
-    
-    
+    <!-- Activity Section -->
+    <div class="flex ml-[200px] mt-[100px] space-x-20 items-start">
+      <!-- Recent Activity -->
+      <div class="bg-white rounded-lg w-[600px] p-6 min-h-[550px] flex flex-col justify-start">
+        <div class="flex justify-between items-center">
+          <h1 class="font-bold text-2xl">Recent Activity</h1>
+          <button class="border-[2px] border-[#A7A7A7] rounded-lg px-4 py-2 hover:bg-[#A7A7A7]">
+            View All
+          </button>
+        </div>
+
+        <!-- Activity List -->
+        <div class="space-y-4 mt-4">
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Visited educational site: Khan Academy Math</p>
+              <div class="px-2 rounded-full bg-[#7ACD3F] text-white text-sm font-medium">safe</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <img src="checkmark_icon.png" class="h-8 w-8">
+              <p class="text-gray-500 text-sm">2 minutes ago</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Received message from unknown contact</p>
+              <div class="px-2 rounded-full bg-[#ED6B1A] text-white text-sm font-medium">flagged</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <img src="alert_icon.png" class="h-8 w-8">
+              <p class="text-gray-500 text-sm">15 minutes ago</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Searched: 'homework help math algebra'</p>
+              <div class="px-2 rounded-full bg-[#7ACD3F] text-white text-sm font-medium">safe</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <img src="checkmark_icon.png" class="h-8 w-8">
+              <p class="text-gray-500 text-sm">20 minutes ago</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Attempted to visit blocked or unsafe website</p>
+              <div class="px-2 rounded-full bg-[#A7A7A8] text-white text-sm font-medium">blocked</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <img src="alert_icon.png" class="h-8 w-8">
+              <p class="text-gray-500 text-sm">1 hour ago</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Video call with: Sarah</p>
+              <div class="px-2 rounded-full bg-[#7ACD3F] text-white text-sm font-medium">safe</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <img src="checkmark_icon.png" class="h-8 w-8">
+              <p class="text-gray-500 text-sm">2 hours ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flagged Activity -->
+      <div class="bg-white rounded-lg w-[600px] p-6 min-h-[550px] flex flex-col justify-start">
+        <div class="flex justify-between items-center">
+          <h1 class="font-bold text-2xl">Flagged Activity</h1>
+          <button class="border-[2px] border-[#A7A7A7] rounded-lg px-4 py-2 hover:bg-[#A7A7A7]">
+            View All
+          </button>
+        </div>
+
+        <div class="space-y-4 mt-4">
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Received message from unknown contact</p>
+              <div class="px-2 rounded-full bg-[#ED6B1A] text-white text-sm font-medium">flagged</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <p class="text-gray-500 text-sm">15 minutes ago</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+            <div class="flex justify-between items-center">
+              <p class="text-lg font-bold">Attempted to visit blocked or unsafe website</p>
+              <div class="px-2 rounded-full bg-[#A7A7A8] text-white text-sm font-medium">blocked</div>
+            </div>
+            <div class="flex items-center space-x-2 mt-2">
+              <p class="text-gray-500 text-sm">1 hour ago</p>
+            </div>
+          </div>
+
+              <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+                <div class="flex justify-between items-center">
+                  <p class="text-lg font-bold">Received voicemail from Scam Likely</p>
+                  <div class="px-2 rounded-full bg-[#ED6B1A] text-white text-sm font-medium">flagged</div>
+                </div>
+                <div class="flex items-center space-x-2 mt-2">
+                  <p class="text-gray-500 text-sm">4 hours ago</p>
+                </div>
+              </div>
+
+                <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+                  <div class="flex justify-between items-center">
+                    <p class="text-lg font-bold">Received call from Scam Likely</p>
+                    <div class="px-2 rounded-full bg-[#ED6B1A] text-white text-sm font-medium">flagged</div>
+                  </div>
+                  <div class="flex items-center space-x-2 mt-2">
+                    <p class="text-gray-500 text-sm">4 hours ago</p>
+                  </div>
+                </div>
+
+                <div class="p-4 bg-[#E3E3E3] rounded-lg relative">
+                  <div class="flex justify-between items-center">
+                    <p class="text-lg font-bold">Tried to bypass parental controls using VPN/proxy</p>
+                    <div class="px-2 rounded-full bg-[#A7A7A8] text-white text-sm font-medium">blocked</div>
+                  </div>
+                  <div class="flex items-center space-x-2 mt-2">
+                    <p class="text-gray-500 text-sm">8 hour ago</p>
+                  </div>
+                </div>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!--Dont pass for Card 3-->
+
+  <!-- Spacer -->
   <div class="h-[1000px]"></div>
-
-
 
   <script src="main.js"></script>
 </body>
