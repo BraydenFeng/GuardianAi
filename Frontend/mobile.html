@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentinel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./dist/output.css" />
+</head>
+<body class="bg-[#1F1F1F] min-h-screen">
+  <div class="flex justify-center">
+    <div class="tabs tabs-lift tabs-bottom flex items-center justify-center">
+      
+      <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Dashboard" />
+
+      <div class="tab-content bg-[#191C26] p-6">
+        <div class="h-[680px]">
+          <h1 class="font-bold text-[30px] pl-[5px] pt-[50px]">Dashboard</h1>
+          <div class="bg-[#111217] w-[300px]">
+            <div class="stats stats-vertical shadow">
+            <div class="stat">
+              <div class="text-l">Protection Status</div>
+              <div class="">-</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">New Users</div>
+              <div class="stat-value">4,200</div>
+              <div class="stat-desc">↗︎ 400 (22%)</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">New Registers</div>
+              <div class="stat-value">1,200</div>
+              <div class="stat-desc">↘︎ 90 (14%)</div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+      <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Activity" checked />
+      <div class="tab-content bg-[#191C26] border-base-300 p-6">
+        <div class="h-[680px]">
+          <h1 class="font-bold text-[50px]">Activity</h1>
+        </div>
+      </div>
+
+      <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Settings" />
+      <div class="tab-content bg-[#191C26] border-base-300 p-6">
+        <div class="h-[680px]">
+          Tab content 3
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
