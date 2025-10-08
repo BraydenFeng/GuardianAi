@@ -5,3 +5,7 @@
 body{
     background-color:#10172a;
 }
+
+input[type="radio"].tab:checked {
+  @apply bg-[#2C344A] text-white h-[50px] ;
+}
