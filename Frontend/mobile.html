@@ -10,43 +10,127 @@
 <body class="bg-[#1F1F1F] min-h-screen">
   <div class="flex justify-center">
     <div class="tabs tabs-lift tabs-bottom flex items-center justify-center">
-      
-      <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Dashboard"/>
+
+      <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Dashboard" />
 
       <div class="tab-content bg-[#191C26] p-6">
-        <div class="h-[680px]">
-          <h1 class="font-bold text-[30px] pl-[5px] pt-[50px]">Dashboard</h1>
-          <div class="bg-[#111217] w-[350px]">
+        <div class="h-[680px] space-y-4 w-[100px]">
+          <h1 class="font-bold text-[30px] pl-[5px] ">Dashboard</h1>
+          <div class="bg-[#111217] w-[348px]">
             <div class="stats stats-vertical shadow">
-            <div class="stat">
-            <div class="flex items-center space-x-2">
-              <img src="white_shield.png" alt="Shield" class="h-[35px] w-[35px]" />
-              <div class="text-lg">Protection Status</div>
-            </div>
-              <div class="ml-[43px]">-</div>
-            </div>
+              <div class="stat">
+                <div class="flex items-center space-x-2">
+                  <img src="white_shield.png" alt="Shield" class="h-[35px] w-[35px]" />
+                  <div class="text-lg">Protection Status</div>
+                </div>
+                <div class="ml-[43px]" id="protections_status">-</div>
+              </div>
 
-            <div class="stat">
-              <div class="stat-title">New Users</div>
-              <div class="stat-value">4,200</div>
-              <div class="stat-desc">↗︎ 400 (22%)</div>
-            </div>
+              <div class="stat">
+                <div class="flex items-center space-x-2">
+                  <img src="white_alert.png" alt="Alert" class="h-[30px] w-[30px]" />
+                  <div class="text-lg">Alerts Today</div>
+                </div>
+                <div class="ml-[43px]">-</div>
+                <div class="stat-desc">Last 24 hours</div>
+              </div>
 
-            <div class="stat">
-              <div class="stat-title">New Registers</div>
-              <div class="stat-value">1,200</div>
-              <div class="stat-desc">↘︎ 90 (14%)</div>
+              <div class="stat">
+                <div class="flex items-center space-x-2">
+                  <img src="white_hourglass.png" alt="white_hourglass" class="h-[30px] w-[30px]" />
+                  <div class="text-lg">Time active</div>
+                </div>
+                <div class="ml-[43px]">-</div>
+                <div class="stat-desc">Total Time Online</div>
+              </div>
             </div>
           </div>
-        </div>
+          <h1 class="whitespace-nowrap text-white font-semibold text-2xl">Suspicious Messages This Week</h1>
 
+          <div class="carousel carousel-center bg-[#111217] rounded-box space-x-2 p-4 h-[230px] w-[348px] mx-auto">
+            <!-- Monday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Monday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:120px;"></div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Tuesday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:180px;"></div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Wednesday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:90px;"></div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Thursday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:200px;"></div>
+            </div>
+
+            <!-- Friday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Friday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:150px;"></div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Saturday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:80px;"></div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="carousel-item bg-[#191A1F] w-[100px] flex flex-col items-center justify-end space-y-4 rounded-lg p-2">
+              <h1 class="text-white font-semibold">Sunday</h1>
+              <div class="bg-white w-12 rounded-t" style="height:110px;"></div>
+            </div>
+          </div>
+          <!--this is for the bar graph-->
         </div>
       </div>
 
       <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Activity" checked />
       <div class="tab-content bg-[#191C26] border-base-300 p-6">
         <div class="h-[680px]">
-          <h1 class="font-bold text-[50px]">Activity</h1>
+          <div>
+            <h1 class="text-[30px] font-bold ">Activites</h1>
+            <div id="loginBox"class="flex flex-col space-y-4 mt-10 h-[500px] w-[330px] bg-[#111217] ml-[13x] justify-center items-center rounded-lg"> 
+              <h1 class="text-4xl font-bold mt-2">Login </h1>
+
+              <label class="floating-label w-[300px]">
+                <h1>Email</h1>
+                <input type="text" class="input input-md" id="emailInput" />
+              </label>
+
+              <label class="floating-label w-[300px]">
+                <h1 class="">Password</h1>
+                <input type="text" class="input input-md" id="passwordInput"/>
+              </label>
+
+              <label class="floating-label w-[300px]">
+                <h1>Username</h1>
+                <input type="text" class="input input-md" id="usernameInput" />
+              </label>
+
+              <button class="btn btn-xl rounded-lg" id="loginBtn">Login</button>
+                <button class="btn bg-white text-black border-[#e5e5e5] mt-[100px]">
+                <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
+                Login with Google
+              </button>
+            </div>
+            
+        <div id="logedIn" class="bg-[#111217] h-[300px] rounded-lg" style="display:none;">
+          <h1 class="text-3xl font-bold pt-[30px] mt-[30px] pl-[40px]">Suspicious Alerts</h1>
+          
+        
+        </div>
+
+          </div>
         </div>
       </div>
 
@@ -60,6 +144,6 @@
     </div>
   </div>
 
-  <script src="main.js"></script>
+  <script src="mobile.js"></script>
 </body>
 </html>
