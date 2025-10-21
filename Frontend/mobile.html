@@ -7,9 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./dist/output.css" />
 </head>
-<body class="bg-[#1F1F1F] min-h-screen">
+<body class="bg-[#191C26] min-h-screen">
   <div class="flex justify-center">
-    <div class="tabs tabs-lift tabs-bottom flex items-center justify-center">
+    <div class="tabs tabs-lift tabs-bottom flex items-center justify-center fixed bottom-0 left-0 w-full bg-[#191C26] z-50">
+
 
       <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Dashboard" />
 
@@ -95,7 +96,7 @@
       </div>
 
       <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Activity" checked />
-      <div class="tab-content bg-[#191C26] border-base-300 p-6">
+      <div class="tab-content bg-[#191C26]  p-6">
         <div class="h-[680px]">
           <div>
             <h1 class="text-[30px] font-bold ">Activites</h1>
@@ -124,7 +125,8 @@
               </button>
             </div>
             
-        <div id="logedIn" class="bg-[#111217] h-[300px] rounded-lg" style="display:none;">
+        <div id="logedIn" class="bg-[#111217] max-h-[400px] overflow-y-auto rounded-lg" style="display:none;">
+          
           <h1 class="text-3xl font-bold pt-[30px] mt-[30px] pl-[40px]">Suspicious Alerts</h1>
           
         
@@ -135,7 +137,7 @@
       </div>
 
       <input type="radio" name="my_tabs_5" class="tab text-2xl" aria-label="Settings" />
-      <div class="tab-content bg-[#191C26] border-base-300 p-6">
+      <div class="tab-content bg-[#191C26]  p-6">
         <div class="h-[680px]">
           Tab content 3
         </div>
