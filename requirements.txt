@@ -7,3 +7,4 @@ cryptography
 torch
 transformers
 google-cloud-firestore
+ss
