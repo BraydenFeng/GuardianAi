@@ -1,9 +1,14 @@
-let Information = {Email: "", Password: "", Username: ""};
+
+const dangerousMessages = [
+  { content: "Sample alert 1", author: "System", timestamp: "2025-10-20" },
+  { content: "Sample alert 2", author: "System", timestamp: "2025-10-20" },
+  { content: "Sample alert 3", author: "System", timestamp: "2025-10-20" }
+];
+
+let Information = { Email: "", Password: "", Username: "" };
 let notlogedin = document.getElementById("loginBox");
 let login = document.getElementById("logedIn");
 let expanded = false;
-
-
 
 async function sendLoginData(userData) {
   try {
@@ -29,61 +34,72 @@ async function sendLoginData(userData) {
   }
 }
 
-
-document.getElementById("loginBtn").addEventListener("click",function() {
+document.getElementById("loginBtn").addEventListener("click", async function () {
   Information.Email = document.getElementById("emailInput").value;
-  Information.Password = document.getElementById("passwordInput").value; // ✅ fixed: was getElementByIdd
+  Information.Password = document.getElementById("passwordInput").value;
   Information.Username = document.getElementById("usernameInput").value;
-  
+
   console.log(Information);
-
-  function renderMessages(){
-    const container = document.getElementById("logedIn");
-    container.innerHTML = "";
-
-    // change dangerousmessages to the real data from the api
-    const visibleMessages  = expanded ? dangerousMessages : dangerousMessages.slice(0,3); // ✅ fixed spacing/typo
-
-    visibleMessages.forEach(msg => { // ✅ fixed: was visivbleMessage
-
-        const box = document.createElement("div");
-        //fix the stuff inside to make it look better later
-        box.className = "bg-[#1e1e24] m-4 p-4 rounded-lg";
-
-        box.innerHTML = `
-        <p class="text-gray-200 text-sm mb-1">"${msg.content}"</p>
-        <p class="text-gray-400 text-xs">${msg.author}</p>
-        <p class="text-gray-500 text-xs">${msg.timestamp}</p>
-        `;
-
-        container.appendChild(box);
-
-    });
-
-    document.getElementById('toggle-button').innerText = expanded ? 'Show Less' : 'Show More';  
-  } 
-
-  document.getElementById('toggle-button').addEventListener('click', () => {
-    expanded = !expanded;
-    renderMessages();
-  });
-
-  // Initial render
-  renderMessages();
-
+  
   if (Object.values(Information).every(value => value)) {
-
     await sendLoginData(Information);
-    
+
     notlogedin.style.display = "none";
     login.style.display = "block";
-    const toggleButton = document.createElement("button"); 
-    toggleButton.className = "btn btn-sm m-4";
-    toggleButton.textContent = "Toggle"; 
-    login.appendChild(toggleButton);
+
+    // Create toggle button if it doesn't exist
+    if (!document.getElementById("toggle-button")) {
+      const toggleButton = document.createElement("button");
+      toggleButton.id = "toggle-button";
+      toggleButton.className = "btn btn-sm m-4";
+      toggleButton.textContent = "Show More";
+      login.appendChild(toggleButton);
+
+      toggleButton.addEventListener("click", () => {
+        expanded = !expanded;
+        renderMessages();
+      });
+    }
 
   } else {
     notlogedin.style.display = "block";
     login.style.display = "none";
   }
+
+  function renderMessages() {
+    const container = document.getElementById("logedIn");
+    container.innerHTML = "";
+
+    // Use mock data until API connects
+    const visibleMessages = expanded ? dangerousMessages : dangerousMessages.slice(0, 3);
+
+    visibleMessages.forEach(msg => {
+      const box = document.createElement("div");
+      box.className = "bg-[#1e1e24] m-4 p-4 rounded-lg";
+
+      box.innerHTML = `
+        <p class="text-gray-200 text-sm mb-1">"${msg.content}"</p>
+        <p class="text-gray-400 text-xs">${msg.author}</p>
+        <p class="text-gray-500 text-xs">${msg.timestamp}</p>
+      `;
+
+      container.appendChild(box);
+    });
+
+    const toggle = document.getElementById("toggle-button");
+    if (toggle) toggle.innerText = expanded ? "Show Less" : "Show More";
+  }
+
+  const toggleButton = document.getElementById("toggle-button");
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      expanded = !expanded;
+      renderMessages();
+    });
+  }
+
+  // Initial render
+  renderMessages();
+
+  
 });
